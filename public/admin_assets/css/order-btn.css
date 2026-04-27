@@ -1,0 +1,5 @@
+
+.status-icon:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* nền xám nhạt */
+    transform: scale(1.1); /* hơi phóng to khi hover */
+}

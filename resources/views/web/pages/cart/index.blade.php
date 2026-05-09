@@ -94,7 +94,7 @@ Cart::setGlobalTax($info->tax);
                     </td>
                     <td>
                         <strong>
-                            {{number_format($cart->price,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                            {{number_format($cart->price,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                         </strong>
                     </td>
                     <td>
@@ -109,7 +109,7 @@ Cart::setGlobalTax($info->tax);
                             <?php
                             $sum = $cart->price * $cart->qty;
                             ?>
-                            {{number_format($sum,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                            {{number_format($sum,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                         </strong>
                     </td>
                     <td class="options">
@@ -166,19 +166,19 @@ Cart::setGlobalTax($info->tax);
                         <li>
                             <span>{{__("Subtotal")}}</span>
                             <p id="sumSubtotal">
-                                {{$carts->priceTotal(0,',','.');}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                {{$carts->priceTotal(0,',','.');}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                             </p>
                         </li>
                         <li>
                             <span>{{__("Tax")}} ({{$info->tax}}%)</span>
                             <p id="tax">
-                                {{$carts->tax(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                {{$carts->tax(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                             </p>
                         </li>
                         <li>
                             <span id="discountPercent">{{__("Discount")}} (0%)</span>
                             <p id="valueDiscount">
-                                {{$carts->discount(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                {{$carts->discount(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                             </p>
                         </li>
                         <li>
@@ -191,7 +191,7 @@ Cart::setGlobalTax($info->tax);
                             <span>{{__("Total")}}</span>
 
                             <p id="totalCart">
-                                {{$carts->total(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                {{$carts->total(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                             </p>
                         </li>
                     </ul>
@@ -251,11 +251,11 @@ Cart::setGlobalTax($info->tax);
                 type: "post",
                 success: function(data) {
                     if (data['success']) {
-                        $("#subtotal_" + cartId).text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#sumSubtotal').text(data.sum.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
+                        $("#subtotal_" + cartId).text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#sumSubtotal').text(data.sum.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
                     }
                     if (data['error']) {
                         $button.parent().find("input").val(data.products_quantity);
@@ -285,10 +285,10 @@ Cart::setGlobalTax($info->tax);
                 dataType: 'json',
                 success: function(data) {
                     Obj.parents('tr').remove();
-                    $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                    $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                    $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                    $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
+                    $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                    $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                    $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                    $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
                 },
                 error: function() {
                     alert("error");
@@ -320,10 +320,10 @@ Cart::setGlobalTax($info->tax);
                         $("#discount").prop('disabled', true);
                         $('#discountPercent').text('{{__("Discounts")}} (' + data.percent.toLocaleString('vi-VN') + '%)');
                         $("#applyCoupon").replaceWith('<button id="cancelCoupon" class="btn_1 outline">{{__("Cancel coupon")}}</button>')
-                        $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
+                        $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
 
                     }
                     if (data['error']) {
@@ -353,10 +353,10 @@ Cart::setGlobalTax($info->tax);
                         $("#discount").prop('disabled', false);
                         $("#cancelCoupon").replaceWith('<button id="applyCoupon" class="btn_1 outline">{{__("Apply Coupon")}}</button>')
                         $('#discountPercent').text('{{__("Discounts")}} (0%)');
-                        $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
-                        $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>');
+                        $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#totalCart').text(data.total.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#tax').text(data.tax.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
+                        $('#valueDiscount').text(data.discount.toLocaleString('vi-VN')).append('<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>');
                     }
                     if (data['error']) {
                         alert(data.error)

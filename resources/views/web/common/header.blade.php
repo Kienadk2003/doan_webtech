@@ -55,7 +55,7 @@
                     <form action="/search" method="GET" class="techstore-search-form">
                         <input type="text" name="search" value="{{Request::get('search')}}"
                             placeholder="Bạn cần tìm gì?">
-                        <button type="submit" aria-label="Search">
+                        <button type="submit" aria-label="Tìm kiếm">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
@@ -67,18 +67,20 @@
                     </a>
                     <a class="techstore-utility" href="javascript:void(0)">
                         <i class="fa-regular fa-map"></i>
-                        <span><small>Hệ thống</small><strong>Showroom</strong></span>
+                        <span><small>Hệ thống</small><strong>Cửa hàng</strong></span>
                     </a>
                     <a class="techstore-utility" href="/trackOrder">
                         <i class="fa-regular fa-clipboard"></i>
                         <span><small>Tra cứu</small><strong>Đơn hàng</strong></span>
                     </a>
                     <div class="dropdown dropdown-cart techstore-cart-wrap">
-                        @if( Request::path() != "cart" && Request::path() != "checkout")
-                        <a href="/cart" class="techstore-utility techstore-cart-link"><i
-                                class="ti-shopping-cart"></i><span><small>Giỏ
-                                    hàng</small><strong>Cart</strong></span><em id="cartCount"
-                                class="techstore-cart-badge">@if(Auth::check()){{ Cart::instance(Auth::user()->id)->count() }}@else{{ Cart::instance()->count() }}@endif</em></a>
+                        @if(Request::path() != "cart" && Request::path() != "checkout")
+                        <a href="/cart" class="techstore-utility techstore-cart-link">
+                            <i class="ti-shopping-cart"></i>
+                            <span><small>Giỏ hàng</small><strong>Của bạn</strong></span>
+                            <em id="cartCount"
+                                class="techstore-cart-badge">@if(Auth::check()){{ Cart::instance(Auth::user()->id)->count() }}@else{{ Cart::instance()->count() }}@endif</em>
+                        </a>
                         <div class="dropdown-menu">
                             <ul>
                                 @foreach($carts->content() as $key =>$cart)
@@ -123,7 +125,7 @@
                                         {{$carts->total(0,',','.');}} <sup>VND</sup>
                                     </span>
                                 </div>
-                                <a href="/cart" class="btn_1">{{__("View Cart")}}</a>
+                                <a href="/cart" class="btn_1">Xem giỏ hàng</a>
                                 @if(Auth::check())
                                 <a href="/checkout" class="btn_1">{{__("Checkout")}}</a>
                                 @else
@@ -141,16 +143,15 @@
                         </a>
                         <div class="dropdown-menu">
                             @if(isset(Auth::user()->image))
-
                             @if(strstr(Auth::user()->image,"https") == "")
                             <img src="https://res.cloudinary.com/{{env('CLOUD_NAME')}}/image/upload/{{ Auth::user()->image }}.jpg"
-                                class=" me-2" style="border-radius:50%!important; width:40px;height:32px">
+                                class="me-2" style="border-radius:50%!important; width:40px;height:32px">
                             @else
-                            <img src='{{Auth::user()->image}}' class=" me-2"
+                            <img src='{{Auth::user()->image}}' class="me-2"
                                 style="border-radius:50%!important; width:40px;height:32px">
                             @endif
                             @else
-                            <img src='images/avatar/avatar.png' class=" me-2"
+                            <img src='images/avatar/avatar.png' class="me-2"
                                 style="border-radius:50%!important; width:40px;height:32px">
                             @endif
 
@@ -246,16 +247,13 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 Obj.parent().remove();
-                $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append(
-                    ' <sup>VND</sup>');
-                $('#total').text(data.total.toLocaleString('vi-VN')).append(
-                    ' <sup>VND</sup>');
+                $('#sumSubtotal').text(data.subtotal.toLocaleString('vi-VN')).append(' <sup>VND</sup>');
+                $('#total').text(data.total.toLocaleString('vi-VN')).append(' <sup>VND</sup>');
                 $('#cartCount').text(data.count.toLocaleString('vi-VN'));
                 $('#tax').text(data.tax.toLocaleString('vi-VN')).append(' <sup>VND</sup>');
             },
             error: function() {
                 alert("error");
-
             }
         })
     });

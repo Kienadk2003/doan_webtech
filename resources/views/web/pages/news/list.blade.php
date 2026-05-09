@@ -8,7 +8,7 @@
         <div class="page_header">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">{{__("Home")}}</a></li>
                     <li>{{__("News")}}</li>
                 </ul>
             </div>
@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <div class="widget search_blog d-block d-sm-block d-md-block d-lg-none">
                     <div class="form-group">
-                        <input type="text" name="search" id="search" class="form-control" placeholder="Search..">
+                        <input type="text" name="search" id="search" class="form-control" placeholder="{{__('Search')}}">
                         <button type="submit"><i class="ti-search"></i></button>
                     </div>
                 </div>

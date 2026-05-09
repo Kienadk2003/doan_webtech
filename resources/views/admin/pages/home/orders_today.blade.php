@@ -46,7 +46,7 @@
                                         @elseif($order->status == 3)
                                     <span class="badge bg-success">{{__("Delivered")}}</span>
                                         @else
-                                    <span class="badge bg-danger">{{__("Cancelled")}}</span>
+                                    <span class="badge bg-danger">Đã hủy</span>
                                         @endif
                                     </td>
                                     <td>

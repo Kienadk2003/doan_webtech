@@ -43,11 +43,9 @@
                                 </a>
                                 <span style="margin-top:15px">
                                     @if($orderPro->price_new)
-                                    {{number_format($orderPro->price_new,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    {{number_format($orderPro->price_new,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     @else
-                                    {{number_format($orderPro->price,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    {{number_format($orderPro->price,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     @endif
                                 </span>
                             </li>
@@ -80,24 +78,21 @@
                                 <em>
                                     <strong>{{__("Subtotal")}}</strong>
                                 </em>
-                                <span>{{number_format($order->subtotal,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                <span>{{number_format($order->subtotal,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                             </li>
 
                             <li class="clearfix">
                                 <em>
                                     <strong>{{__("Tax")}} ({{(($order->total-($order->subtotal-$order->discount))/($order->subtotal-$order->discount))*100}}%)</strong>
                                 </em>
-                                <span>{{number_format($order->tax,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                <span>{{number_format($order->tax,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                             </li>
 
                             <li class="clearfix">
                                 <em>
                                     <strong>{{__("Discount")}} ({{(($order->subtotal-($order->total-$order->tax))/$order->subtotal)*100}}%)</strong>
                                 </em>
-                                <span>{{number_format($order->discount,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                <span>{{number_format($order->discount,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                             </li>
 
                             <li class="clearfix">
@@ -115,14 +110,13 @@
                                     @if(str_contains($order->content ?? '', 'COD order'))
                                         <span class="badge bg-success">COD</span>
                                     @else
-                                        <span class="badge bg-primary">Thanh toÃ¡n trá»±c tiáº¿p</span>
+                                        <span class="badge bg-primary">Thanh toán trực tuyến</span>
                                     @endif
                                 </span>
                             </li>
                         </ul>
                         <div class="total clearfix">{{__("Total")}}
-                            <span>{{number_format($order->total,0,',','.')}}<sup
-                                    style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                            <span>{{number_format($order->total,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                         </div>
                     </div>
                     <!-- /box_general -->

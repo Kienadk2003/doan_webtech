@@ -13,7 +13,7 @@
         <div class="page_header">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">{{__("Home")}}</a></li>
                     <li>{{__("News")}}</li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
             <aside class="col-lg-3">
                 <div class="widget search_blog">
                     <div class="form-group">
-                        <input type="text" name="search" id="search" class="form-control" placeholder="Search..">
+                        <input type="text" name="search" id="search" class="form-control" placeholder="{{__('Search')}}">
                         <button type="submit"><i class="ti-search"></i></button>
                     </div>
                 </div>

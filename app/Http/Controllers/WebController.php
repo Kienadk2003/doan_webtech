@@ -667,8 +667,36 @@ class WebController extends Controller
     }
 
     public function detailTrackOrder(Request $request){
-        // dd($request->id);
-        $order = Orders::find($request->id);
+        $lookup = trim((string) $request->id);
+        $order = null;
+
+        if ($lookup !== '') {
+            $numericLookup = preg_replace('/\D+/', '', $lookup);
+
+            $query = Orders::with('products.ProductsImage')
+                ->where(function ($builder) use ($numericLookup) {
+                    $builder->whereNull('hold')->orWhere('hold', 0);
+                })
+                ->whereHas('products');
+
+            if ($numericLookup !== '') {
+                $query->where(function ($builder) use ($numericLookup) {
+                    $builder->where('id', (int) $numericLookup)
+                        ->orWhereRaw("CONCAT(DATE_FORMAT(created_at, '%d%m%Y'), id) = ?", [$numericLookup]);
+
+                    if (strlen($numericLookup) > 8) {
+                        $suffixId = ltrim(substr($numericLookup, 8), '0');
+
+                        if ($suffixId !== '') {
+                            $builder->orWhere('id', (int) $suffixId);
+                        }
+                    }
+                });
+            }
+
+            $order = $query->latest('id')->first();
+        }
+
         return view('web.pages.account.detail-track-order',[
             'order'=>$order
         ]);
@@ -696,6 +724,13 @@ class WebController extends Controller
         }else{
             abort(404);
         }
+    }
+
+    public function handle_trackOrder(Request $request){
+        if ($request->id) {
+            return redirect()->to('/detail-track-order?id='.$request->id);
+        }
+        return redirect()->back()->with('toast_error', __('Please enter your order ID'));
     }
     
     //! Cart

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-12">
                 <h3>TechStore</h3>
-                <p class="footer-lead">Nen tang quan ly va ban phu kien cong nghe xay dung bang Laravel.</p>
+                <p class="footer-lead">Nền tảng quản lý và bán phụ kiện công nghệ xây dựng bằng Laravel.</p>
                 <ul class="contacts">
                     <li><i class="ti-home"></i> {{$info->address}}</li>
                     <li><i class="ti-headphone-alt"></i> +{{$info->phone}}</li>
@@ -28,13 +28,13 @@
                         <li><a href="{{$info->youtube}}"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="web_assets/img/youtube_icon.svg" alt="" class="lazy"></a></li>
                     </ul>
                 </div>
-                <a href="/accessories" class="btn_1 mt-3">{{__("Accessories")}}</a>
+                <a href="/accessories" class="btn_1 mt-3">Phụ kiện</a>
             </div>
         </div>
         <hr>
         <div class="footer-bottom">
-            <p>{{$info->copyright}} | TechStore Accessories Management</p>
-            <a href="#0">Dieu khoan va dich vu</a>
+            <p>{{$info->copyright}} | TechStore Quản lý phụ kiện</p>
+            <a href="#0">Điều khoản và dịch vụ</a>
         </div>
     </div>
 </footer>

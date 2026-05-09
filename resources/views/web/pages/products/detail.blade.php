@@ -122,26 +122,22 @@
                                 @if($products->status == 1)
                                 @if($products->price != 0 && $products->price_new != 0)
                                 <div class="price_main">
-                                    <span class="new_price">{{number_format($products->price_new,0,",",".")}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    <span class="new_price">{{number_format($products->price_new,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     </span>
                                     <span
                                         class="percentage">-{{round((($products->price - $products->price_new)/$products->price)*100,0) }}%</span>
-                                    <span class="old_price">{{number_format($products->price,0,",",".")}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    <span class="old_price">{{number_format($products->price,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     </span>
                                 </div>
 
                                 @elseif($products->price == 0 && $products->price_new !=0)
                                 <div class="price_main">
-                                    <span class="new_price">{{number_format($products->price_new,0,",",".")}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    <span class="new_price">{{number_format($products->price_new,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     </span>
                                 </div>
                                 @elseif($products->price != 0 && $products->price_new == 0)
                                 <div class="price_main">
-                                    <span class="new_price">{{number_format($products->price,0,",",".")}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    <span class="new_price">{{number_format($products->price,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     </span>
                                 </div>
                                 @else

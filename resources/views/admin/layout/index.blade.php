@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - TechStore Admin</title>
+    <title>Trang quản trị - TechStore</title>
     <base href="{{asset('')}}">
     <link rel="stylesheet" href="admin_assets/css/bootstrap.css">
     <link rel="stylesheet" href="admin_assets/vendors/perfect-scrollbar/perfect-scrollbar.css">

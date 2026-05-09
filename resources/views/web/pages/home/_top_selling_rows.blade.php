@@ -19,8 +19,8 @@
             <h3 class="d-block">{{$pro->name}}</h3>
         </a>
         <div class="price_box">
-            <span class="new_price">{{ number_format($pro->price_new,0,",", ".") }} VnÄ‘</span>
-            <span class="old_price">{{ number_format($pro->price,0,",", ".") }} VnÄ‘</span>
+            <span class="new_price">{{ number_format($pro->price_new,0,",", ".") }} VND</span>
+            <span class="old_price">{{ number_format($pro->price,0,",", ".") }} VND</span>
         </div>
         <ul>
             <li>

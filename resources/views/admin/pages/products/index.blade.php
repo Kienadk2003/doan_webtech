@@ -226,7 +226,9 @@ $(function(){
                     // Preferred: replace table body so the visible rows reflect the filter
                     try{ if(window.dataTable) window.dataTable.destroy(); }catch(e){}
                     $('#table1 tbody').html(res.html);
-                    window.dataTable = new simpleDatatables.DataTable(document.querySelector('#table1'));
+                    window.dataTable = window.createAdminDataTable
+                        ? window.createAdminDataTable(document.querySelector('#table1'))
+                        : new simpleDatatables.DataTable(document.querySelector('#table1'));
                     if(typeof feather !== 'undefined') feather.replace();
                     console.debug('Replaced table. Rows: ' + $('#table1 tbody tr').length);
                 } else if(res.sold_map){

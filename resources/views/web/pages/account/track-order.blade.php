@@ -17,6 +17,7 @@
                             <input type="text" name="id" class="form-control" placeholder="{{__('Invoice ID')}}">
                             <input type="submit" value="{{__('Search')}}">
                         </div>
+                        <small class="d-block mt-2 text-muted">Ví dụ: <strong>#27</strong> hoặc <strong>{{ date('dmY') }}27</strong></small>
                     </form>
                 </div>
             </div>

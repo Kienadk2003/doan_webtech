@@ -1,4 +1,4 @@
-@extends('web.layout.index')
+﻿@extends('web.layout.index')
 @section('css')
 <link href="web_assets/css/track_order.css" rel="stylesheet">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -59,7 +59,7 @@
                         <span style="color:#ff5b5c;font-weight: 700!important;">{{__("Order is canceled")}}</span>
                         @endif
                     </div>
-                    <div class="col"> <strong>{{__("Tracking")}} #:</strong> <br> {{date('dmY')}}{{$order->id}} </div>
+                    <div class="col"> <strong>{{__("Tracking")}} #:</strong> <br> {{$order->created_at->format('dmY')}}{{$order->id}} </div>
                     <div class="col"> <strong>{{__("Quantity")}} :</strong> <br> 
                     <?php 
                         $sum=0;
@@ -107,20 +107,25 @@
                 <li class="col-md-4">
                     <a href="/accessory/{{$orderPro->id}}" style="color:black !important;">
                         <figure class="itemside mb-3">
-                            <div class="aside"><img
+                            <div class="aside">
+                                @if($orderPro->ProductsImage->first())
+                                <img
                                     src="https://res.cloudinary.com/{{env('CLOUD_NAME')}}/image/upload/{{$orderPro->ProductsImage->first()->image}}.jpg"
-                                    class="img-sm border"></div>
+                                    class="img-sm border">
+                                @else
+                                <img src="web_assets/img/products/product_placeholder_square_medium.jpg"
+                                    class="img-sm border">
+                                @endif
+                            </div>
                             <figcaption class="info align-self-center">
                                 <p class="title">
                                 {{$orderPro->pivot->quantity}} x {{$orderPro->name}}
                                 </p>
                                 <span class="text-muted">
                                     @if($orderPro->price_new)
-                                    {{number_format($orderPro->price_new,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    {{number_format($orderPro->price_new,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     @else
-                                    {{number_format($orderPro->price,0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                    {{number_format($orderPro->price,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     @endif
                                 </span>
                             </figcaption>

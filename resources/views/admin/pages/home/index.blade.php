@@ -27,7 +27,7 @@ active
 {{-- 
 <section class="section">
     <div class="row mb-2">
-        <!--Đơn trong ngày-->
+        <!--ÄÆ¡n trong ngÃ y-->
         <div class="col-12 col-md-3">
             <div class="card card-statistic">
                 <div class="card-body p-0">
@@ -46,7 +46,7 @@ active
             </div>
         </div> --}}
 {{-- 
-        <!--Doanh thu trong ngày-->
+        <!--Doanh thu trong ngÃ y-->
         <div class="col-12 col-md-3">
             <div class="card card-statistic">
                 <div class="card-body p-0">
@@ -54,7 +54,7 @@ active
                         <div class='px-3 py-3 d-flex justify-content-between flex-column'>
                             <h3 class='card-title'>{{__("Revenue Today")}}</h3> 
                             <div class="card-right d-flex align-items-center text-nowrap">
-                                <p>{{number_format($sum_today,0,',','.')}} <sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">đ</sup> </p>
+                                <p>{{number_format($sum_today,0,',','.')}} <sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup> </p>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -65,7 +65,7 @@ active
             </div>
         </div> --}}
 
-        <!--Tổng đơn đã giao của của hàng từ trước đến nay-->
+        <!--Tá»•ng Ä‘Æ¡n Ä‘Ã£ giao cá»§a cá»§a hÃ ng tá»« trÆ°á»›c Ä‘áº¿n nay-->
         {{-- <div class="col-12 col-md-3">
             <div class="card card-statistic">
                 <div class="card-body p-0">
@@ -84,13 +84,13 @@ active
             </div>
         </div> --}}
 {{-- 
-        <!--Tổng tiền thu được-->
+        <!--Tá»•ng tiá»n thu Ä‘Æ°á»£c-->
         <div class="col-12 col-md-3">
             <div class="card card-statistic">
                 <div class="card-body p-0">
                     <div class="d-flex flex-column">
                         <div class='px-3 py-3 d-flex justify-content-between flex-column'>
-                            <h3 class='card-title'>{{__("Cancelled Today")}}</h3>
+                            <h3 class='card-title'>Đơn hủy hôm nay</h3>
                             <div class="card-right d-flex align-items-center text-nowrap" style="margin-left:2px">
                                 <p>{{ $cancelled_today }}</p>
                             </div>
@@ -139,7 +139,7 @@ active
                             </div>
                             <div class="form-check me-3">
                                 <input class="form-check-input status-filter field-filter" data-field="canceled" type="checkbox" value="0,4" id="status_cancelled_header" checked>
-                                <label class="form-check-label" for="status_cancelled_header">{{__("Cancelled")}}</label>
+                                <label class="form-check-label" for="status_cancelled_header">Đã hủy</label>
                             </div>
 
                         </div>
@@ -150,14 +150,14 @@ active
                         <div class="row">
                             <div class="row align-items-end mb-3 w-100" style="margin-left:0;">
                                 <div class="col-md-3">
-                                    <label for="datepickerFrom" class="form-label">{{ __("From:") }}</label>
+                                    <label for="datepickerFrom" class="form-label">Từ ngày</label>
                                     <div class="input-group">
                                         <input type="text" id="datepickerFrom" class="form-control" autocomplete="off" placeholder="yyyy-mm-dd" />
                                         <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="datepickerTo" class="form-label">{{ __("To:") }}</label>
+                                    <label for="datepickerTo" class="form-label">Đến ngày</label>
                                     <div class="input-group">
                                         <input type="text" id="datepickerTo" class="form-control" autocomplete="off" placeholder="yyyy-mm-dd" />
                                         <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
@@ -182,13 +182,13 @@ active
                                             <th>{{__("Days")}}</th>
                                             <th class="col-total">{{__("Total")}}</th>
                                             <th class="text-center col-count">{{__("Delivered")}}</th>
-                                            <th class="text-center col-canceled">{{__("Cancelled")}}</th>
+                                            <th class="text-center col-canceled">Đã hủy</th>
                                             <th class="text-center col-shipping">{{__("Delivery in Progress")}}</th>
                                             <th class="text-center col-processing">{{__("In Progress")}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- Dữ liệu sẽ được render bằng JS -->
+                                        <!-- Dá»¯ liá»‡u sáº½ Ä‘Æ°á»£c render báº±ng JS -->
                                     </tbody>
                                     <tfoot>
                                         <tr id="orders-table-total-row" style="font-weight:bold;background:#f8f9fa;">
@@ -229,7 +229,7 @@ active
                 <div class="col-md-6 mb-3">
                     <div class="card h-100">
                         <div class="card-header">
-                            <h5>{{__("Accessory Inventory Chart")}}</h5>
+                            <h5>Biểu đồ tồn kho phụ kiện</h5>
                         </div>
                         <div class="card-body">
                             <canvas id="stockProductsChart" style="width:100%;height:320px;"></canvas>
@@ -280,7 +280,7 @@ active
                             tension: 0.2
                         }
                         ,{
-                            label: '{{__("Cancelled")}}',
+                            label: 'Đã hủy',
                             data: canceledData,
                             borderColor: '#e74c3c',
                             backgroundColor: 'rgba(231,76,60,0.05)',
@@ -332,10 +332,10 @@ active
             });
         }
 
-        // Tự động load dữ liệu 7 ngày gần nhất khi trang vừa load
+        // Tá»± Ä‘á»™ng load dá»¯ liá»‡u 7 ngÃ y gáº§n nháº¥t khi trang vá»«a load
         function getDefaultDates() {
             var now = new Date();
-            var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); // reset về 00:00
+            var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); // reset vá» 00:00
             var priorDate = new Date(today);
             priorDate.setDate(today.getDate() - 6);
             function format(d) {
@@ -422,7 +422,7 @@ active
                         var shippingData = data.chart_data.map(row => Number(row.shipping) || 0);
                         var processingData = data.chart_data.map(row => Number(row.processing) || 0);
                         renderChart(labels, totalData, countData, canceledData, shippingData, processingData);
-                        // Render bảng thống kê
+                        // Render báº£ng thá»‘ng kÃª
                         var tbody = '';
                         var total = 0, delivered = 0, canceled = 0, shipping = 0, processing = 0;
                         data.chart_data.forEach(function(row) {
@@ -446,7 +446,7 @@ active
                             </tr>`;
                         });
                         $("#orders-table tbody").html(tbody);
-                        // Cập nhật dòng tổng
+                        // Cáº­p nháº­t dÃ²ng tá»•ng
                         $("#total-money").text(total.toLocaleString('vi-VN'));
                         $("#total-delivered").text(delivered);
                         $("#total-canceled").text(canceled);
@@ -454,7 +454,7 @@ active
                         $("#total-processing").text(processing);
                         // Apply column visibility according to checked fields
                         applyFieldVisibility();
-                        // Cập nhật biểu đồ sản phẩm bán chạy nếu backend trả về
+                        // Cáº­p nháº­t biá»ƒu Ä‘á»“ sáº£n pháº©m bÃ¡n cháº¡y náº¿u backend tráº£ vá»
                         if (data.topProducts) {
                             try { window.updateTopProducts(data.topProducts); } catch(e) { console.warn('updateTopProducts not defined', e); }
                         }
@@ -488,9 +488,9 @@ active
             },
             success:function(data){
                 if (data['success']) {
-                    // Nếu chỉ chọn 1 ngày, hiển thị theo giờ
+                    // Náº¿u chá»‰ chá»n 1 ngÃ y, hiá»ƒn thá»‹ theo giá»
                     if (from === to) {
-                        // Lấy danh sách đơn hàng trong ngày từ backend (nếu có trả về)
+                        // Láº¥y danh sÃ¡ch Ä‘Æ¡n hÃ ng trong ngÃ y tá»« backend (náº¿u cÃ³ tráº£ vá»)
                         var allOrders = (data.orders_today || []);
                         var hours = Array.from({length: 24}, (_, i) => i);
                         var orderTotalByHour = Array(24).fill(0);
@@ -532,7 +532,7 @@ active
                             processingByHour
                         );
                     } else {
-                        // Render Chart.js như cũ
+                        // Render Chart.js nhÆ° cÅ©
                         var labels = data.chart_data.map(row => row.date);
                         var totalData = data.chart_data.map(row => Number(row.total) || 0);
                         var countData = data.chart_data.map(row => Number(row.count) || 0);
@@ -542,7 +542,7 @@ active
                         renderChart(labels, totalData, countData, canceledData, shippingData, processingData);
                         applyFieldVisibility();
                     }
-                    // Render bảng thống kê như cũ
+                    // Render báº£ng thá»‘ng kÃª nhÆ° cÅ©
                     var tbody = '';
                     var total = 0, delivered = 0, canceled = 0, shipping = 0, processing = 0;
                     data.chart_data.forEach(function(row) {
@@ -590,7 +590,7 @@ active
         applyFieldVisibility();
         $('#btn-filter').click();
     });
-    // field-only filters (like Tổng tiền) should immediately affect visibility
+    // field-only filters (like Tá»•ng tiá»n) should immediately affect visibility
     $('.field-filter').change(function(){
         applyFieldVisibility();
     });
@@ -633,14 +633,14 @@ active
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <script>
 $(function() {
-    // Khởi tạo datepicker cho cả hai input
+    // Khá»Ÿi táº¡o datepicker cho cáº£ hai input
     $("#datepickerFrom, #datepickerTo").datepicker({
         maxDate: '0',
         dateFormat: "yy-mm-dd",
         duration: "fast",
         showAnim: "fadeIn"
     });
-    // Khi click vào icon lịch thì focus vào input tương ứng
+    // Khi click vÃ o icon lá»‹ch thÃ¬ focus vÃ o input tÆ°Æ¡ng á»©ng
     $('#datepickerFrom').parent('.input-group').find('.input-group-text').click(function(){
         $('#datepickerFrom').focus();
     });
@@ -650,11 +650,11 @@ $(function() {
 });
 </script>
 
-{{-- Đã xoá script đồ thị đơn hàng trong ngày để tích hợp vào đồ thị chính --}}
+{{-- ÄÃ£ xoÃ¡ script Ä‘á»“ thá»‹ Ä‘Æ¡n hÃ ng trong ngÃ y Ä‘á»ƒ tÃ­ch há»£p vÃ o Ä‘á»“ thá»‹ chÃ­nh --}}
 
 <script>
 $(function() {
-    // Lấy dữ liệu top sản phẩm bán chạy từ backend
+    // Láº¥y dá»¯ liá»‡u top sáº£n pháº©m bÃ¡n cháº¡y tá»« backend
     // We'll create chart instances and expose functions to update them when user filters by date
     var topProductsChart;
     var stockProductsChart;
@@ -682,7 +682,7 @@ $(function() {
                 }]
             },
             options: {
-                indexAxis: 'y', // Đồ thị ngang
+                indexAxis: 'y', // Äá»“ thá»‹ ngang
                 responsive: true,
                 plugins: {
                     legend: { display: false },
@@ -712,7 +712,7 @@ $(function() {
         });
     }
 
-    // Thêm biểu đồ cột dọc số lượng tồn kho (không phụ thuộc ngày)
+    // ThÃªm biá»ƒu Ä‘á»“ cá»™t dá»c sá»‘ lÆ°á»£ng tá»“n kho (khÃ´ng phá»¥ thuá»™c ngÃ y)
     var stockProducts = @json($stockProducts ?? []);
     function createStockChart() {
         var stockLabels = stockProducts.map(p => `SKU: ${p.id}`);
@@ -731,7 +731,7 @@ $(function() {
                 }]
             },
             options: {
-                indexAxis: 'x', // Đồ thị cột dọc
+                indexAxis: 'x', // Äá»“ thá»‹ cá»™t dá»c
                 responsive: true,
                 plugins: {
                     legend: { display: false },
@@ -773,7 +773,7 @@ $(function() {
 </script>
 <script>
 $(document).ready(function() {
-    // Xử lý chọn nhanh ngày
+    // Xá»­ lÃ½ chá»n nhanh ngÃ y
     $('#quick-date-select').change(function() {
         var val = $(this).val();
         var today = new Date();
@@ -817,8 +817,9 @@ $(document).ready(function() {
         $('#btn-filter').click();
     });
 
-    // Khi trang vừa load, tự động trigger chọn "7 ngày gần nhất" ở Dropdown
+    // Khi trang vá»«a load, tá»± Ä‘á»™ng trigger chá»n "7 ngÃ y gáº§n nháº¥t" á»Ÿ Dropdown
     $('#quick-date-select').val('week').trigger('change');
 });
 </script>
 @endsection
+

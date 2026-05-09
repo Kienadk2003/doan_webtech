@@ -1,4 +1,4 @@
-<div style="width: 600px; margin:0 auto; color: #333">
+﻿<div style="width: 600px; margin:0 auto; color: #333">
     <h2 style="text-align: center">{{__("Hi ")}} {{ $name }}</h2>
     <h3 style="text-align: center">{{__("Thank you for ordering from our store")}}</h3>
     <h3 style="text-align: center">
@@ -25,8 +25,7 @@
             </td>
             <td style="text-align:center">{{$carts->qty}}</td>
             <td style="text-align:center">
-                {{number_format($carts->price,0,",",".")}}<sup
-                    style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">đ</sup>
+                {{number_format($carts->price,0,",",".")}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
             </td>
 
         </tr>
@@ -35,8 +34,9 @@
             <th style="border: 0px !important"></th>
             <th style="border: 0px !important"></th>
             <th style="text-align: center">{{__("Total")}} + {{__("Tax")}} ({{(($orders->total-($orders->subtotal-$orders->discount))/($orders->subtotal-$orders->discount))*100}}%) + {{__("Discount")}} ({{(($orders->subtotal-($orders->total-$orders->tax))/$orders->subtotal)*100}}%) </th>
-            <td style="text-align: center">{{$cart->total(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">đ</sup></td>
+            <td style="text-align: center">{{$cart->total(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></td>
         </tr>
     </table>
 
 </div>
+

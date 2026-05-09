@@ -33,13 +33,13 @@
         <div class="container">
             {{-- <div class="product-toolbar" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; background: #fff; padding: 16px 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
 				<button class="toolbar-btn" onclick="onSortChange('price-asc')" style="border: 1px solid #d1d5db; background: #fff; border-radius: 8px; padding: 8px 18px; font-size: 1rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
-					<i class="fa fa-sort-amount-up"></i> GiÃ¡ tÄƒng dáº§n
+					<i class="fa fa-sort-amount-up"></i> Giá tăng dần
 				</button>
 				<button class="toolbar-btn" onclick="onSortChange('price-desc')" style="border: 1px solid #d1d5db; background: #fff; border-radius: 8px; padding: 8px 18px; font-size: 1rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
-					<i class="fa fa-sort-amount-down"></i> GiÃ¡ giáº£m dáº§n
+					<i class="fa fa-sort-amount-down"></i> Giá giảm dần
 				</button>
-				<input type="text" placeholder="GiÃ¡ tháº¥p nháº¥t" style="width: 120px; border: 1px solid #3b82f6; border-radius: 8px; padding: 8px 10px; font-size: 1rem; margin-left: 6px;" />
-				<input type="text" placeholder="GiÃ¡ cao nháº¥t" style="width: 120px; border: 1px solid #3b82f6; border-radius: 8px; padding: 8px 10px; font-size: 1rem; margin-left: 6px;" />
+				<input type="text" placeholder="Giá thấp nhất" style="width: 120px; border: 1px solid #3b82f6; border-radius: 8px; padding: 8px 10px; font-size: 1rem; margin-left: 6px;" />
+				<input type="text" placeholder="Giá cao nhất" style="width: 120px; border: 1px solid #3b82f6; border-radius: 8px; padding: 8px 10px; font-size: 1rem; margin-left: 6px;" />
 				<button style="background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 8px 16px; margin-left: 6px; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">
 					<i class="fa fa-search"></i>
 				</button>
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <!-- áº¨n thanh tÃ¬m kiáº¿m theo giÃ¡ (range slider) Ä‘á»ƒ khÃ´ng áº£nh hÆ°á»Ÿng dá»¯ liá»‡u sáº£n pháº©m -->
+    <!-- Ẩn thanh tìm kiếm theo giá (range slider) để không ảnh hưởng dữ liệu sản phẩm -->
     <div class="range-slider" style="display:none;">
         <input type="text" class="js-range-slider" value="" />
     </div>
@@ -218,7 +218,7 @@
                 <!-- /col -->
             </div>
 
-            {{-- XÃ“A hoáº·c áº©n phÃ¢n trang --}}
+            {{-- Xóa hoặc ẩn phân trang --}}
             {{-- <div class="pagination__wrapper">
 				{{$products->links()}}
         </div> --}}
@@ -367,15 +367,15 @@ $(document).ready(function() {
 </script>
 <script>
 function onSortChange(type) {
-    // Láº¥y giÃ¡ trá»‹ tá»« thanh tÃ¬m kiáº¿m á»Ÿ header
+    // Lấy giá trị từ thanh tìm kiếm ở header
     var keyword = '';
     if ($('.custom-search-input input[name="search"]').length) {
         keyword = $('.custom-search-input input[name="search"]').val();
     } else if ($('.search_mob_wp input[name="search"]').length) {
         keyword = $('.search_mob_wp input[name="search"]').val();
     }
-    var priceMin = $("input[placeholder='GiÃ¡ tháº¥p nháº¥t']").val();
-    var priceMax = $("input[placeholder='GiÃ¡ cao nháº¥t']").val();
+    var priceMin = $("input[placeholder='Giá thấp nhất']").val();
+    var priceMax = $("input[placeholder='Giá cao nhất']").val();
     var catValue = [];
     $("input[name='cat_value[]']:checked").each(function() {
         catValue.push($(this).val());
@@ -405,12 +405,12 @@ function onSortChange(type) {
 }
 </script>
 <script>
-// Xá»­ lÃ½ tÃ¬m kiáº¿m theo giÃ¡ khi báº¥m nÃºt tÃ¬m kiáº¿m
+// Xử lý tìm kiếm theo giá khi bấm nút tìm kiếm
 $(document).ready(function() {
     $(".product-toolbar button:has(.fa-search)").on('click', function(e) {
         e.preventDefault();
-        var priceMin = $("input[placeholder='GiÃ¡ tháº¥p nháº¥t']").val();
-        var priceMax = $("input[placeholder='GiÃ¡ cao nháº¥t']").val();
+        var priceMin = $("input[placeholder='Giá thấp nhất']").val();
+        var priceMax = $("input[placeholder='Giá cao nhất']").val();
         var keyword = '';
         if ($('.custom-search-input input[name="search"]').length) {
             keyword = $('.custom-search-input input[name="search"]').val();
@@ -448,8 +448,8 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
     function checkPriceInput() {
-        var min = $("input[placeholder='GiÃ¡ tháº¥p nháº¥t']").val();
-        var max = $("input[placeholder='GiÃ¡ cao nháº¥t']").val();
+        var min = $("input[placeholder='Giá thấp nhất']").val();
+        var max = $("input[placeholder='Giá cao nhất']").val();
         var btn = $(".product-toolbar button:has(.fa-search)");
         if (min === '' || max === '') {
             btn.prop('disabled', true).css({
@@ -463,16 +463,16 @@ $(document).ready(function() {
             });
         }
     }
-    $("input[placeholder='GiÃ¡ tháº¥p nháº¥t'], input[placeholder='GiÃ¡ cao nháº¥t']").on('input',
+    $("input[placeholder='Giá thấp nhất'], input[placeholder='Giá cao nhất']").on('input',
         checkPriceInput);
-    checkPriceInput(); // Gá»i khi load trang
+    checkPriceInput(); // Gọi khi load trang
     $(".product-toolbar button:has(.fa-search)").on('click', function(e) {
         if ($(this).prop('disabled')) {
             e.preventDefault();
             return false;
         }
-        var priceMin = $("input[placeholder='GiÃ¡ tháº¥p nháº¥t']").val();
-        var priceMax = $("input[placeholder='GiÃ¡ cao nháº¥t']").val();
+        var priceMin = $("input[placeholder='Giá thấp nhất']").val();
+        var priceMax = $("input[placeholder='Giá cao nhất']").val();
         var keyword = '';
         if ($('.custom-search-input input[name="search"]').length) {
             keyword = $('.custom-search-input input[name="search"]').val();

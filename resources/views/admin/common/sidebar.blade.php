@@ -18,7 +18,7 @@
 
                     <a href="#" class='sidebar-link'>
                         <i data-feather="triangle" width="20"></i>
-                        <span>{{__("Manage Accessories")}}</span>
+                        <span>Quản lý phụ kiện</span>
                     </a>
                     <ul class="submenu ">
                         <li>
@@ -58,7 +58,7 @@
                 <li class="sidebar-item  has-sub @yield('info')">
                     <a href="#" class='sidebar-link'>
                         <i data-feather="info" width="20"></i>
-                        <span>{{__("Website")}}</span>
+                        <span>Trang web</span>
                     </a>
                     <ul class="submenu ">
                         <li>

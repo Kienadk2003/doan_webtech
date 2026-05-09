@@ -16,8 +16,8 @@
 							</g>
 						</svg>
 					</div>
-					<h2>{{__("Order completed!")}}</h2>
-					{{-- <p>{{__("You will receive a confirmation email soon!")}}</p> --}}
+					<h2>Đặt hàng thành công!</h2>
+					<p>Bạn sẽ được chuyển đến trang đơn hàng của tôi sau giây lát.</p>
 				</div>
 				<input type="hidden" id="orders_id" value="{{$orders->id}}" data-id="{{$orders->id}}" />
 			</div>

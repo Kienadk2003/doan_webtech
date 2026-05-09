@@ -80,7 +80,7 @@ if(Auth::check()){
                                             <?php
                                                 $ch = curl_init();
                                                 curl_setopt($ch, CURLOPT_URL, "https://provinces.open-api.vn/api/v2/");
-                                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // 🔥 quan trọng
+                                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // ðŸ”¥ quan trá»ng
                                                 $response = curl_exec($ch);
                                                 $response = json_decode($response, true);
                                                 foreach($response as $value){?>
@@ -149,8 +149,7 @@ if(Auth::check()){
                                         </em>
                                     </a>
                                     <span style="margin-top:15px">
-                                        {{number_format($cart->price,0,',','.')}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup>
+                                        {{number_format($cart->price,0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup>
                                     </span>
                                 </li>
                                 @endforeach
@@ -160,24 +159,21 @@ if(Auth::check()){
                                     <em>
                                         <strong>{{__("Subtotal")}}</strong>
                                     </em>
-                                    <span>{{$carts->priceTotal(0,',','.');}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                    <span>{{$carts->priceTotal(0,',','.');}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                                 </li>
 
                                 <li class="clearfix">
                                     <em>
                                         <strong>{{__("Tax")}}</strong>
                                     </em>
-                                    <span>{{$carts->tax(0,',','.')}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                    <span>{{$carts->tax(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                                 </li>
 
                                 <li class="clearfix">
                                     <em>
                                         <strong>{{__("Discount")}}</strong>
                                     </em>
-                                    <span>{{$carts->discount(0,',','.')}}<sup
-                                            style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                    <span>{{$carts->discount(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                                 </li>
 
                                 <li class="clearfix">
@@ -189,13 +185,12 @@ if(Auth::check()){
 
                             </ul>
                             <div class="total clearfix">{{__("Total")}}
-                                <span>{{$carts->total(0,',','.')}}<sup
-                                        style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">Ä‘</sup></span>
+                                <span>{{$carts->total(0,',','.')}}<sup style="text-decoration: underline; padding: 3px; text-transform: lowercase !important;">VND</sup></span>
                             </div>
                             @if($carts->content()->count() >0)
                             <a href="javascript:void(0)" onclick="document.getElementById('confirmCheckout').submit();"
                                 class="btn_1 full-width">{{__("Direct Payment (VNPay)")}}</a>
-                            <!-- NÃºt thanh toÃ¡n COD á»Ÿ ngay dÆ°á»›i -->
+                            <!-- NÃƒÂºt thanh toÃƒÂ¡n COD Ã¡Â»Å¸ ngay dÃ†Â°Ã¡Â»â€ºi -->
                             <button type="submit" formaction="/checkout_cod" formmethod="post" class="btn_1 full-width"
                                 style="background:#28a745; margin-top:10px;">{{__("Cash on Delivery (COD)")}}</button>
                             <input type="hidden" name="discount" value="{{$discount}}" />
